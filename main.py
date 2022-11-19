@@ -35,24 +35,25 @@ headers = {
 # print(graph_response.text)
 date = f"{datetime.datetime.today().strftime('%Y%m%d')}"
 
-pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
-pixel_creation_pram = {
+pixel_post_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+pixel_post_pram = {
     "date": date,
-    "quantity": "222"
+    "quantity": input("How many minutes did you code today? ")
 }
 #
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_creation_pram, headers=headers)
+response = requests.post(url=pixel_post_endpoint, json=pixel_post_pram, headers=headers)
+print(response.text)
 
 # print(date)
-pixel_update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
-pixel_update_pram = {
-    "quantity": "122"
-}
+# pixel_update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
+# pixel_update_pram = {
+#     "quantity": "122"
+# }
 # response = requests.put(url=pixel_update_endpoint, json=pixel_update_pram, headers=headers)
 # print(response.text)
 
 
-pixel_delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
-
-response = requests.delete(url=pixel_delete_endpoint, headers=headers)
-print(response.text)
+# pixel_delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
+#
+# response = requests.delete(url=pixel_delete_endpoint, headers=headers)
+# print(response.text)
